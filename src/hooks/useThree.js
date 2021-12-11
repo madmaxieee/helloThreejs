@@ -10,6 +10,7 @@ const useThree = () => {
 
   const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
   camera.position.set(0, 0, 10);
+  camera.lookAt(0, 0, 0);
 
   const scene = new THREE.Scene();
   scene.background = new THREE.Color(0xffffff);

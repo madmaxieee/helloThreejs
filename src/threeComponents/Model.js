@@ -1,5 +1,4 @@
 import * as THREE from "three";
-import { SkinnedMesh } from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import MODEL from "../models/remy_gltf/remy.gltf";
 
@@ -48,10 +47,10 @@ const addModel2Scene = (scene) => {
 
   loader.load(MODEL, function (gltf) {
     model = gltf.scene;
-    console.log(model);
-    const skinMeshes = model.getObjectByName("Hair");
-    console.log(model.children[0].children)
-    console.log(skinMeshes);
+    // console.log(model);
+    // const skinMeshes = model.getObjectByName("Hair");
+    // console.log(model.children[0].children)
+    // console.log(skinMeshes);
     // skinMeshes[2].material.map = new THREE.TextureLoader().load(
     //   "static/media/Remy_Top_Diffuse.png"
     // );
