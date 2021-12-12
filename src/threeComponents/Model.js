@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import MODEL from "../models/remy_gltf/remy.gltf";
+// import MODEL from "../models/Xbot.gltf"
 
 let model, skeleton, mixer;
 
@@ -50,12 +51,25 @@ const addModel2Scene = (scene) => {
 
   loader.load(MODEL, function (gltf) {
     model = gltf.scene;
+<<<<<<< HEAD
     const body = model.getObjectByName("Body");
     body.material.map = new THREE.TextureLoader().load(
       "static/media/Remy_Body_Diffuse_w_light.png"
     );
     body.material.alphaMap = blue_mask;
     console.log(body);
+=======
+    // console.log(model);
+    const hair = model.getObjectByName("Hair");
+    // console.log(model.children[0].children)
+    // console.log(skinMeshes);
+    hair.material.map = new THREE.TextureLoader().load(
+      "static/media/Remy_Shoes_Diffuse.png"
+    );
+    // skinMeshes[2].material.color = { r: 0.5, g: 0.5, b: 0.5 };
+    // console.log(skinMeshes[2]);
+
+>>>>>>> 6191c62269622b6e2047f665f0934b587ea1f4d6
     scene.add(model);
 
     skeleton = new THREE.SkeletonHelper(model);
