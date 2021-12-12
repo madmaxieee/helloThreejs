@@ -9,13 +9,8 @@ const useThree = () => {
   const renderer = new THREE.WebGLRenderer({ antialias: true });
 
   const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-<<<<<<< HEAD
   camera.position.set(0, 3, 5);
   camera.lookAt(0, 0, -2);
-=======
-  camera.position.set(0, 0, 10);
-  camera.lookAt(0, 0, 0);
->>>>>>> 6191c62269622b6e2047f665f0934b587ea1f4d6
 
   const scene = new THREE.Scene();
   scene.background = new THREE.Color(0xffffff);
