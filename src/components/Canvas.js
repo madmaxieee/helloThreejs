@@ -22,10 +22,8 @@ export const Canvas = () => {
     animate((clockDelta) => {
       updateModel(clockDelta);
     });
-    console.log("layout");
     return () => {
       cleanUp(canvas);
-      console.log("clean up");
     };
   });
 

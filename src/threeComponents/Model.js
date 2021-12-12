@@ -1,5 +1,4 @@
 import * as THREE from "three";
-import { SkinnedMesh } from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import MODEL from "../models/remy_gltf/remy.gltf";
 
@@ -43,21 +42,20 @@ function updateModel(clockDelta) {
   mixer.update(clockDelta);
 }
 
+const blue_mask = new THREE.TextureLoader().load("/static/media/blue_mask.png");
+const red_mask = new THREE.TextureLoader().load("/static/media/red_mask.png");
+
 const addModel2Scene = (scene) => {
   const loader = new GLTFLoader();
 
   loader.load(MODEL, function (gltf) {
     model = gltf.scene;
-    console.log(model);
-    const skinMeshes = model.getObjectByName("Hair");
-    console.log(model.children[0].children)
-    console.log(skinMeshes);
-    // skinMeshes[2].material.map = new THREE.TextureLoader().load(
-    //   "static/media/Remy_Top_Diffuse.png"
-    // );
-    // skinMeshes[2].material.color = { r: 0.5, g: 0.5, b: 0.5 };
-    // console.log(skinMeshes[2]);
-
+    const body = model.getObjectByName("Body");
+    body.material.map = new THREE.TextureLoader().load(
+      "static/media/Remy_Body_Diffuse_w_light.png"
+    );
+    body.material.alphaMap = blue_mask;
+    console.log(body);
     scene.add(model);
 
     skeleton = new THREE.SkeletonHelper(model);

@@ -9,11 +9,12 @@ const useThree = () => {
   const renderer = new THREE.WebGLRenderer({ antialias: true });
 
   const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-  camera.position.set(0, 0, 10);
+  camera.position.set(0, 3, 5);
+  camera.lookAt(0, 0, -2);
 
   const scene = new THREE.Scene();
   scene.background = new THREE.Color(0xffffff);
-  const light = new THREE.HemisphereLight(0xffffbb, 0x080820, 3);
+  const light = new THREE.HemisphereLight(0xffffbb, 0x080820, 2);
   scene.add(light);
   const clock = new THREE.Clock();
 
@@ -23,7 +24,7 @@ const useThree = () => {
    * @param {Array} shape [width, height]
    * @param {Object} cameraPos
    */
-  const init = (canvas, [width, height]) => {
+  const init = (canvas, [width, height]) => { 
     renderer.setSize(width, height);
 
     camera.aspect = width / height;
